@@ -15,5 +15,5 @@ class Settings(BaseSettings):
 def get_settings() -> Settings:
     return Settings()
 
-
+# @lru_cache on get_settings() caches the returned Settings instance for the lifetime of the process (unless you call get_settings.cache_clear()).
 settings = get_settings()

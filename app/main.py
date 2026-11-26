@@ -1,11 +1,15 @@
 from fastapi import FastAPI
-# from sqlalchemy import text
+from sqlalchemy import text
+from app.routers import notes
 
 from app.config import settings
 from app.database import SessionDep
 
 
 app = FastAPI(title=settings.app_name, debug=settings.debug)
+
+app.include_router(notes.router)
+
 
 # @app.get("/")
 # async def read_root(db: SessionDep = Depends(SessionDep)):

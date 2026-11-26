@@ -20,6 +20,7 @@ class User(Base):
     hashed_password: Mapped[str] = mapped_column(String(255))
     is_active: Mapped[bool] = mapped_column(default=True)
     created_at: Mapped[datetime] = mapped_column(server_default=func.now())
+    bio: Mapped[str | None] = mapped_column(String(255))
 
     notes: Mapped[list["Note"]] = relationship(
         back_populates="user", cascade="all, delete-orphan"
